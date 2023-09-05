@@ -1,5 +1,20 @@
 # mole.site
 deploy the mole website
+ #!/bin/bash
+ sudo su
+ yum -y update
+ yum install httpd -y
+ cd /var/www/html
+ wget https://github.com/alexiangwa/mole.site/archive/refs/heads/main.zip
+ unzip main.zip
+ cd mole.site-main/
+ unzip mole\ \(2\).zip
+ cp -r mole-main/* /var/www/html
+ rm -rf mole\ \(2\).zip main.zip
+ rm -rf mole.site-main/ main.zip
+ systemctl enable httpd
+ systemctl start httpd
+
 
 
 #!/bin/bash
